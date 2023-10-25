@@ -59,6 +59,42 @@ Route::prefix('admin')->group(function () {
 });
 
 
+//group route with prefix "public"
+Route::prefix('public')->group(function () {
+
+    //index posts
+    Route::get('/posts', [App\Http\Controllers\Api\Public\PostController::class, 'index']);
+
+    //show posts
+    Route::get('/posts/{slug}', [App\Http\Controllers\Api\Public\PostController::class, 'show']);
+
+    //index posts home
+    Route::get('/posts_home', [App\Http\Controllers\Api\Public\PostController::class, 'homePage']);
+
+    //index products
+    Route::get('/products', [App\Http\Controllers\Api\Public\ProductController::class, 'index']);
+
+    //show page
+    Route::get('/products/{slug}', [App\Http\Controllers\Api\Public\ProductController::class, 'show']);
+
+    //index products home
+    Route::get('/products_home', [App\Http\Controllers\Api\Public\ProductController::class, 'homePage']);
+
+    //index pages
+    Route::get('/pages', [App\Http\Controllers\Api\Public\PageController::class, 'index']);
+
+    //show page
+    Route::get('/pages/{slug}', [App\Http\Controllers\Api\Public\PageController::class, 'show']);
+
+    //index aparaturs
+    Route::get('/aparaturs', [App\Http\Controllers\Api\Public\AparaturController::class, 'index']);
+
+    //index photos
+    Route::get('/photos', [App\Http\Controllers\Api\Public\PhotoController::class, 'index']);
+
+    //index sliders
+    Route::get('/sliders', [App\Http\Controllers\Api\Public\SliderController::class, 'index']);
+});
 // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //     return $request->user();
 // });
